@@ -1,0 +1,97 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N2:definitions name="gestorInterconsultaWebService" targetNamespace="http://ejie.com/af20a.integracion.gestorInterconsulta.webservice" xmlns:WL5G3N0="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:WL5G3N1="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N3="http://ejie.com/af20a.integracion.gestorInterconsulta.webservice" xmlns:WL5G3N4="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+  <!-- <WL5G3N0:Policy WL5G3N1:Id="Auth.xml">
+    <wssp:Identity xmlns:wssp="http://www.bea.com/wls90/security/policy">
+      <wssp:SupportedTokens>
+        <wssp:SecurityToken TokenType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#UsernameToken">
+          <wssp:UsePassword Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText"/>
+        </wssp:SecurityToken>
+        <wssp:SecurityToken TokenType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+      </wssp:SupportedTokens>
+    </wssp:Identity>
+  </WL5G3N0:Policy>
+  <wsp:UsingPolicy WL5G3N2:Required="true"/> -->
+  <WL5G3N2:types>
+    <xsd:schema xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://ejie.com/af20a.integracion.gestorInterconsulta.webservice" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ejie.com/af20a.integracion.gestorInterconsulta.webservice" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://ejie.com/af20a.integracion.gestorInterconsulta.webservice" schemaLocation="./AF20AGestorInterconsultaWS.xsd"/>
+    </xsd:schema>
+  </WL5G3N2:types>
+  <WL5G3N2:message name="realizarInterconsulta">
+    <WL5G3N2:part element="WL5G3N3:realizarInterconsultaRequest" name="parameters"/>
+  </WL5G3N2:message>
+  <WL5G3N2:message name="realizarInterconsultaResponse">
+    <WL5G3N2:part element="WL5G3N3:realizarInterconsultaResponse" name="parameters"/>
+  </WL5G3N2:message>
+  <WL5G3N2:message name="respuestaIdentificacion">
+    <WL5G3N2:part element="WL5G3N3:respuestaIdentificacionRequest" name="parameters"/>
+  </WL5G3N2:message>
+  <WL5G3N2:message name="respuestaIdentificacionResponse">
+    <WL5G3N2:part element="WL5G3N3:respuestaIdentificacionResponse" name="parameters"/>
+  </WL5G3N2:message>
+  <WL5G3N2:message name="respuestaConsulta">
+    <WL5G3N2:part element="WL5G3N3:respuestaConsultaRequest" name="parameters"/>
+  </WL5G3N2:message>
+  <WL5G3N2:message name="respuestaConsultaResponse">
+    <WL5G3N2:part element="WL5G3N3:respuestaConsultaResponse" name="parameters"/>
+  </WL5G3N2:message>
+  <WL5G3N2:portType name="GestorInterconsultaWebServiceImpl">
+    <WL5G3N2:operation name="realizarInterconsulta">
+      <WL5G3N2:input message="WL5G3N3:realizarInterconsulta"/>
+      <WL5G3N2:output message="WL5G3N3:realizarInterconsultaResponse"/>
+    </WL5G3N2:operation>
+    <WL5G3N2:operation name="respuestaIdentificacion">
+      <WL5G3N2:input message="WL5G3N3:respuestaIdentificacion"/>
+      <WL5G3N2:output message="WL5G3N3:respuestaIdentificacionResponse"/>
+    </WL5G3N2:operation>
+    <WL5G3N2:operation name="respuestaConsulta">
+      <WL5G3N2:input message="WL5G3N3:respuestaConsulta"/>
+      <WL5G3N2:output message="WL5G3N3:respuestaConsultaResponse"/>
+    </WL5G3N2:operation>
+  </WL5G3N2:portType>
+  <WL5G3N2:binding name="gestorInterconsultaWebServicePortBinding" type="WL5G3N3:GestorInterconsultaWebServiceImpl">
+    <WL5G3N4:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N2:operation name="realizarInterconsulta">
+      <WL5G3N4:operation/>
+      <WL5G3N2:input>
+        <WL5G3N4:body use="literal"/>
+        <!-- <wsp:Policy>
+          <wsp:PolicyReference URI="#Auth.xml"/>
+        </wsp:Policy> -->
+      </WL5G3N2:input>
+      <WL5G3N2:output>
+        <WL5G3N4:body use="literal"/>
+      </WL5G3N2:output>
+    </WL5G3N2:operation>
+    <WL5G3N2:operation name="respuestaIdentificacion">
+      <WL5G3N4:operation/>
+      <WL5G3N2:input>
+        <WL5G3N4:body use="literal"/>
+        <!-- <wsp:Policy>
+          <wsp:PolicyReference URI="#Auth.xml"/>
+        </wsp:Policy> -->
+      </WL5G3N2:input>
+      <WL5G3N2:output>
+        <WL5G3N4:body use="literal"/>
+      </WL5G3N2:output>
+    </WL5G3N2:operation>
+    <WL5G3N2:operation name="respuestaConsulta">
+      <WL5G3N4:operation/>
+      <WL5G3N2:input>
+        <WL5G3N4:body use="literal"/>
+        <!-- <wsp:Policy>
+          <wsp:PolicyReference URI="#Auth.xml"/>
+        </wsp:Policy> -->
+      </WL5G3N2:input>
+      <WL5G3N2:output>
+        <WL5G3N4:body use="literal"/>
+      </WL5G3N2:output>
+    </WL5G3N2:operation>
+  </WL5G3N2:binding>
+  <WL5G3N2:service name="gestorInterconsultaWebService">
+    <WL5G3N2:documentation>OSB Service</WL5G3N2:documentation>
+    <WL5G3N2:port binding="WL5G3N3:gestorInterconsultaWebServicePortBinding" name="gestorInterconsultaWebServicePort">
+      <WL5G3N4:address location="https://svc.integracion.des.ejgv.jaso:443/ctxweb/secured_ssl/AF20AGestorInterconsulta"/>
+    </WL5G3N2:port>
+  </WL5G3N2:service>
+</WL5G3N2:definitions>

@@ -1,0 +1,183 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.3.2-wls141100-b230825.0707 git-revision#5f81cab. --><xs:schema version="1.0" targetNamespace="http://ejie.com/af20a.integracion.gestorInterconsulta.webservice" xmlns:tns="http://ejie.com/af20a.integracion.gestorInterconsulta.webservice" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="realizarInterconsultaRequest" nillable="true" type="tns:realizarInterconsultaRequest"/>
+
+<xs:element name="realizarInterconsultaResponse" type="tns:realizarInterconsultaResponse"/>
+
+<xs:element name="respuestaConsultaRequest" nillable="true" type="tns:respuestaConsultaRequestWrapper"/>
+
+<xs:element name="respuestaConsultaResponse" type="tns:respuestaConsultaResponse"/>
+
+<xs:element name="respuestaIdentificacionRequest" nillable="true" type="tns:respuestaIdentificacionRequestWrapper"/>
+
+<xs:element name="respuestaIdentificacionResponse" type="tns:respuestaIdentificacionResponse"/>
+
+<xs:complexType name="respuestaIdentificacionRequestWrapper">
+<xs:sequence>
+<xs:element name="idCaso" type="xs:string"/>
+<xs:element name="idPeticion" type="xs:string"/>
+<xs:element name="codEntidad" type="xs:string"/>
+<xs:element name="estado" type="xs:string"/>
+<xs:element name="descEstadoCas" type="xs:string"/>
+<xs:element name="descEstadoEus" type="xs:string"/>
+<xs:element name="servicioSocial" type="tns:servicioSocial" minOccurs="0"/>
+<xs:element name="trabajadorSocial" type="tns:trabajadorSocial" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="servicioSocial">
+<xs:sequence>
+<xs:element name="idServicioSocial" type="xs:string"/>
+<xs:element name="descServicioSocialCas" type="xs:string"/>
+<xs:element name="descServicioSocialEus" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="trabajadorSocial">
+<xs:sequence>
+<xs:element name="tipoIdentificacionTrabajadorSocial" type="xs:string"/>
+<xs:element name="numeroIdentificacionTrabajadorSocial" type="xs:string"/>
+<xs:element name="nombreTrabajadorSocial" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respuestaIdentificacionResponse">
+<xs:sequence>
+<xs:element name="respuestaIdentificacionResponse" type="tns:respuestaIdentificacionResponseWrapper" form="qualified" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respuestaIdentificacionResponseWrapper">
+<xs:sequence>
+<xs:element name="idCaso" type="xs:string" nillable="true"/>
+<xs:element name="estado" type="xs:string"/>
+<xs:element name="descEstadoCas" type="xs:string"/>
+<xs:element name="descEstadoEus" type="xs:string"/>
+<xs:element name="detallesError" type="tns:af20ADetallesError" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="af20ADetallesError">
+<xs:sequence>
+<xs:element name="codError" type="xs:string" minOccurs="0"/>
+<xs:element name="descCas" type="xs:string" minOccurs="0"/>
+<xs:element name="descEus" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="realizarInterconsultaRequest">
+<xs:sequence>
+<xs:element name="idCaso" type="xs:string" minOccurs="0"/>
+<xs:element name="codEntidad" type="xs:string"/>
+<xs:element name="categorizacionConsulta" type="tns:categoriaConsulta" maxOccurs="unbounded"/>
+<xs:element name="consulta" type="xs:string"/>
+<xs:element name="unidadAsistencial" type="tns:unidadAsistencial" minOccurs="0"/>
+<xs:element name="municipioEntidad" type="tns:municipioEntidad"/>
+<xs:element name="servicioSocial" type="tns:servicioSocial" minOccurs="0"/>
+<xs:element name="trabajadorSocial" type="tns:trabajadorSocial" minOccurs="0"/>
+<xs:element name="personaSanitaria" type="tns:personaSanitaria" minOccurs="0"/>
+<xs:element name="ciudadano" type="tns:ciudadano"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="categoriaConsulta">
+<xs:sequence>
+<xs:element name="idCategoria" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unidadAsistencial">
+<xs:sequence>
+<xs:element name="idUnidadAsistencial" type="xs:string"/>
+<xs:element name="descUnidadAsistencialCas" type="xs:string"/>
+<xs:element name="descUnidadAsistencialEus" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="municipioEntidad">
+<xs:sequence>
+<xs:element name="idMunicipio" type="xs:string"/>
+<xs:element name="descMunicipio" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="personaSanitaria">
+<xs:sequence>
+<xs:element name="tipoIdentificacionPersonaSanitaria" type="xs:string"/>
+<xs:element name="numeroIdentificacionPersonaSanitaria" type="xs:string"/>
+<xs:element name="nombrePersonaSanitaria" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ciudadano">
+<xs:sequence>
+<xs:element name="tipoIdentificacion" type="xs:string"/>
+<xs:element name="numIdentificacion" type="xs:string"/>
+<xs:element name="nombre" type="xs:string"/>
+<xs:element name="apellido1" type="xs:string"/>
+<xs:element name="apellido2" type="xs:string" minOccurs="0"/>
+<xs:element name="telefono" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaNacimiento" type="xs:string" minOccurs="0"/>
+<xs:element name="domicilio" type="xs:string" minOccurs="0"/>
+<xs:element name="tis" type="xs:string" minOccurs="0"/>
+<xs:element name="nss" type="xs:string" minOccurs="0"/>
+<xs:element name="esMenor" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="realizarInterconsultaResponse">
+<xs:sequence>
+<xs:element name="realizarInterconsultaResponse" type="tns:realizarInterconsultaResponseWrapper" form="qualified" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="realizarInterconsultaResponseWrapper">
+<xs:sequence>
+<xs:element name="idCaso" type="xs:string" nillable="true"/>
+<xs:element name="idPeticion" type="xs:string" nillable="true"/>
+<xs:element name="estado" type="xs:string"/>
+<xs:element name="descEstadoCas" type="xs:string"/>
+<xs:element name="descEstadoEus" type="xs:string"/>
+<xs:element name="detallesError" type="tns:af20ADetallesError" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respuestaConsultaRequestWrapper">
+<xs:sequence>
+<xs:element name="idCaso" type="xs:string"/>
+<xs:element name="codEntidad" type="xs:string"/>
+<xs:element name="idPeticion" type="xs:string"/>
+<xs:element name="categorizacionRespuesta" type="tns:categoriaRespuesta" maxOccurs="unbounded"/>
+<xs:element name="respuesta" type="xs:string"/>
+<xs:element name="trabajadorSocial" type="tns:trabajadorSocial" minOccurs="0"/>
+<xs:element name="personaSanitaria" type="tns:personaSanitaria" minOccurs="0"/>
+<xs:element name="unidadAsistencial" type="tns:unidadAsistencial" minOccurs="0"/>
+<xs:element name="municipioEntidad" type="tns:municipioEntidad"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="categoriaRespuesta">
+<xs:sequence>
+<xs:element name="idRespuesta" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respuestaConsultaResponse">
+<xs:sequence>
+<xs:element name="respuestaConsultaResponse" type="tns:respuestaConsultaResponseWrapper" form="qualified" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="respuestaConsultaResponseWrapper">
+<xs:sequence>
+<xs:element name="idCaso" type="xs:string"/>
+<xs:element name="idPeticion" type="xs:string"/>
+<xs:element name="estado" type="xs:string"/>
+<xs:element name="descEstadoCas" type="xs:string"/>
+<xs:element name="descEstadoEus" type="xs:string"/>
+<xs:element name="detallesError" type="tns:af20ADetallesError" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
