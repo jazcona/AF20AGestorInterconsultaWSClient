@@ -9,6 +9,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -45,7 +47,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.9.0</version>
                 <configuration>
-                    <release>11</release>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -85,7 +88,7 @@
                 <configuration>
                     <mainClass>com.example.Main</mainClass>
                     <!-- Aquí especificas el ejecutable de java de tu JDK -->
-                    <executable>C:/Program Files/Java/jdk-11/bin/java</executable>
+                    <executable>C:/Program Files/Java/jdk-1.8/bin/java</executable>
                 </configuration>
             </plugin>
         </plugins>
